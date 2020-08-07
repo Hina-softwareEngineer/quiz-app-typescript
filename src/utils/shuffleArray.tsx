@@ -1,4 +1,4 @@
-export const shuffleArray = (array: object[]) => {
+export const shuffleArray = (array: string[]) => {
   let arrayLength = array.length;
 
   for (var i = 0; i < arrayLength; i++) {

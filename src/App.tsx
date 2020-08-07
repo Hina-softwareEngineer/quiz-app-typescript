@@ -1,35 +1,31 @@
 import React, { useState } from "react";
-import { shuffleArray } from "./utils/shuffleArray";
+import { fetchData, Difficulty, QuestionState } from "./utils/FetchingData";
 import "./App.css";
 
+type AnswerObject = {
+  question: string;
+  answer: string;
+  correct: boolean;
+  correctAnswer: string;
+};
+
 function App() {
-  const [datafetch, setDatafetch] = useState([{ question: "question" }]);
-  const [shuffledata, setShuffleData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [questions, setQuestions] = useState<QuestionState[]>([]);
+  const [number, setNumber] = useState(0);
+  const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
+  const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(true);
 
-  const fetchData = async () => {
-    console.log("fetchData");
-    const data = await fetch(
-      "https://opentdb.com/api.php?amount=10&category=17&difficulty=medium&type=multiple"
-    );
-    let response = await data.json();
-    setDatafetch(response.results);
-    // console.log(response, response.results, " response is good");
-    let arrayShuffle: object[] = shuffleArray(response.results);
-    setShuffleData(arrayShuffle);
-  };
-
-  console.log("hello", datafetch, shuffledata);
+  const startQuiz = async () => {};
 
   return (
     <div className="App">
       <h1>Quiz App</h1>
 
-      <button onClick={fetchData}>Start</button>
-
-      {datafetch || datafetch.map((question) => <div>{question.question}</div>)}
+      <button onClick={startQuiz}>Start</button>
 
       <h2>Shuffle</h2>
-      {/* {shuffledata && shuffledata.map((question) => <div>{question.question}</div>)} */}
     </div>
   );
 }
