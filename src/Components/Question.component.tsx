@@ -25,13 +25,13 @@ export const Question: React.FC<Props> = ({
 
       <p>{question}</p>
 
-      {answers.map((ans) => {
-        <div corrrec>
+      {answers.map((ans, index) => (
+        <div key={index}>
           <button disabled={userAnswer} value={ans} onClick={callback}>
-            {ans}
+            <span dangerouslySetInnerHTML={{ __html: ans }} />
           </button>
-        </div>;
-      })}
+        </div>
+      ))}
     </div>
   );
 };

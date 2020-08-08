@@ -10,6 +10,7 @@ export const fetchData = async (
     `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
   );
   let data = await response.json();
+  console.log(data, data.results);
   return data.results.map((question: Question) => ({
     ...question,
     answers: shuffleArray([
