@@ -18,11 +18,14 @@ function App() {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
+  const [amount, setAmount] = useState(10);
+  const [difficult, setDifficulty] = useState(Difficulty.EASY);
+  const [category, setCategory] = useState(0);
 
   const startQuiz = async () => {
     setLoading(true);
     setGameOver(false);
-    const newQuestions = await fetchData(10, Difficulty.EASY, 21);
+    const newQuestions = await fetchData(amount, difficult, category);
     setQuestions(newQuestions);
     setScore(0);
     setUserAnswers([]);
@@ -60,7 +63,58 @@ function App() {
     <div className="App">
       <h1>Quiz App</h1>
       {gameOver || userAnswers.length === Total_Questions ? (
-        <button onClick={startQuiz}>Begin Quiz</button>
+        <div>
+          <select
+            name="amount"
+            id="amount"
+            onChange={(e) => setAmount(+e.target.value)}
+          >
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+
+          <select
+            name="difficulty"
+            id="difficulty"
+            onChange={(e) => {
+              if (e.target.value === "easy") {
+                setDifficulty(Difficulty.EASY);
+              } else if (e.target.value === "medium") {
+                setDifficulty(Difficulty.MEDIUM);
+              } else {
+                setDifficulty(Difficulty.HARD);
+              }
+            }}
+          >
+            <option value={Difficulty.EASY}>Easy</option>
+            <option value={Difficulty.MEDIUM}>Medium</option>
+            <option value={Difficulty.HARD}>Hard</option>
+          </select>
+
+          <select
+            name="category"
+            id="category"
+            onChange={(e) => setCategory(+e.target.value)}
+          >
+            <option value="0">Any Category</option>
+            <option value="9">General Knowledge</option>
+            <option value="10">Entertainment : Books</option>
+            <option value="11">Entertainment : Films</option>
+            <option value="17">Science & Nature</option>
+            <option value="18">Science : Computers</option>
+            <option value="19">Science : Mathematics</option>
+            <option value="20">Mythology</option>
+            <option value="21">Sports</option>
+            <option value="22">Geography</option>
+            <option value="27">Animals</option>
+            <option value="23">History</option>
+            <option value="30">Science : Gadgets</option>
+          </select>
+          <button onClick={startQuiz}>Begin Quiz</button>
+        </div>
       ) : null}
       {!gameOver ? <p>Score : {score}</p> : null}
       {loading ? <p>Loading</p> : null}
