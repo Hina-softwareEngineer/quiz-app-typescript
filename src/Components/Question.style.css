@@ -1,0 +1,32 @@
+.questionBox {
+  text-align: left;
+  margin: 20px auto;
+  max-width: 650px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+
+.questionBox > p:first-child {
+  font-size: 20px;
+  background: brown;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.questionBox > p:nth-child(2) {
+  font-size: 28px;
+  font-weight: 600;
+  background-color: blueviolet;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.answers > button {
+  margin: 10px 0;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  width: -webkit-fill-available;
+}

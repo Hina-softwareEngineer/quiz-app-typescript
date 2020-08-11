@@ -21,3 +21,12 @@ select {
   font-size: 18px;
   font-weight: bolder;
 }
+
+.next {
+  width: 100px;
+  font-size: 16px;
+  font-size: bolder;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Question.style.css";
 
 type Props = {
   question: string;
@@ -18,15 +19,15 @@ export const Question: React.FC<Props> = ({
   totalQuestions,
 }) => {
   return (
-    <div>
+    <div className="questionBox">
       <p>
-        Question : {questionNum} / {totalQuestions}
+        Question No : {questionNum} / {totalQuestions}
       </p>
 
       <p>{question}</p>
 
       {answers.map((ans, index) => (
-        <div key={index}>
+        <div className="answers" key={index}>
           <button disabled={userAnswer} value={ans} onClick={callback}>
             <span dangerouslySetInnerHTML={{ __html: ans }} />
           </button>
