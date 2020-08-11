@@ -61,9 +61,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Quiz App</h1>
+      <h1 className="quiz-app">Quiz App</h1>
       {gameOver || userAnswers.length === Total_Questions ? (
         <div>
+          <label htmlFor="amount">Select Total Questions</label>
           <select
             name="amount"
             id="amount"
@@ -76,6 +77,7 @@ function App() {
             <option value="50">50</option>
           </select>
 
+          <label htmlFor="difficulty">Select Difficulty</label>
           <select
             name="difficulty"
             id="difficulty"
@@ -94,6 +96,7 @@ function App() {
             <option value={Difficulty.HARD}>Hard</option>
           </select>
 
+          <label htmlFor="category">Select Category</label>
           <select
             name="category"
             id="category"
@@ -113,7 +116,9 @@ function App() {
             <option value="23">History</option>
             <option value="30">Science : Gadgets</option>
           </select>
-          <button onClick={startQuiz}>Begin Quiz</button>
+          <button className="begin-quiz" onClick={startQuiz}>
+            Begin Quiz
+          </button>
         </div>
       ) : null}
       {!gameOver ? <p>Score : {score}</p> : null}
