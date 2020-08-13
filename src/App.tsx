@@ -63,7 +63,7 @@ function App() {
     <div className="App">
       <h1 className="quiz-app">Quiz App</h1>
       {gameOver || userAnswers.length === Total_Questions ? (
-        <div>
+        <div className="selection">
           <label htmlFor="amount">Select Total Questions</label>
           <select
             name="amount"
@@ -121,7 +121,7 @@ function App() {
           </button>
         </div>
       ) : null}
-      {!gameOver ? <p>Score : {score}</p> : null}
+      {!gameOver ? <p className="score">Score : {score}</p> : null}
       {loading ? <p>Loading</p> : null}
 
       {!loading && !gameOver ? (

@@ -4,12 +4,12 @@
   max-width: 650px;
   padding: 20px;
   border-radius: 10px;
-  background-color: whitesmoke;
+  background-color: #f79af0;
 }
 
 .questionBox > p:first-child {
   font-size: 20px;
-  background: brown;
+  background: #e55bfd;
   color: white;
   border-radius: 5px;
   padding: 5px 10px;
@@ -17,7 +17,8 @@
 .questionBox > p:nth-child(2) {
   font-size: 28px;
   font-weight: 600;
-  background-color: blueviolet;
+  color: white;
+  background-color: rgb(253, 61, 157);
   border-radius: 5px;
   padding: 5px 10px;
 }
@@ -28,5 +29,9 @@
   font-size: 18px;
   font-weight: bold;
   border: none;
+  background-color: hotpink;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
   width: -webkit-fill-available;
 }

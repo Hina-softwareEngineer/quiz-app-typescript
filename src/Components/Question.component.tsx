@@ -24,7 +24,7 @@ export const Question: React.FC<Props> = ({
         Question No : {questionNum} / {totalQuestions}
       </p>
 
-      <p>{question}</p>
+      <p dangerouslySetInnerHTML={{ __html: question }} />
 
       {answers.map((ans, index) => (
         <div className="answers" key={index}>
