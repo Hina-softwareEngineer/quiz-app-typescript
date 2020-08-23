@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/fcdffa65-416e-40da-9bf9-0456c020ae63/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/quiz-app-in-typescript",
+    "appService.deploySubpath": "build"
+}
